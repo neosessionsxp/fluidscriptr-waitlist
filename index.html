@@ -1,817 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FluidScriptr — Join the Founding Members List</title>
-<meta name="description" content="The first AI tool that turns your story — manuscript or idea — into a professional screenplay. Join the waitlist for founding member access." />
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F1923'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='%230D9B8A'%3E🎬%3C/text%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --ink:    #0F1923;
-  --slate:  #162535;
-  --teal:   #0D9B8A;
-  --tealLt: #12B5A2;
-  --gold:   #E8B84B;
-  --goldLt: #F2CC6E;
-  --cream:  #F0EDE6;
-  --mist:   #8A9BB0;
-  --white:  #FFFFFF;
-  --border: rgba(255,255,255,0.07);
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: var(--ink);
-  color: var(--white);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* ── Clapperboard animation ──────────────────────────────── */
-.clapper-wrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2.5rem;
-  perspective: 600px;
-}
-
-.clapper {
-  width: 120px;
-  position: relative;
-}
-
-.clapper-body {
-  width: 120px;
-  height: 80px;
-  background: var(--ink);
-  border: 2px solid rgba(255,255,255,0.15);
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-}
-
-.clapper-stripes {
-  display: flex;
-  height: 28px;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.stripe {
-  flex: 1;
-  background: var(--white);
-}
-.stripe:nth-child(even) { background: var(--ink); }
-.stripe-gold { background: var(--gold) !important; }
-
-.clapper-text {
-  padding: 8px 10px;
-  font-size: 9px;
-  color: var(--mist);
-  font-family: 'Inter', sans-serif;
-  letter-spacing: 0.05em;
-  line-height: 1.6;
-}
-
-.clapper-top {
-  width: 120px;
-  height: 34px;
-  background: var(--ink);
-  border: 2px solid rgba(255,255,255,0.15);
-  border-radius: 4px 4px 0 0;
-  position: relative;
-  overflow: hidden;
-  transform-origin: bottom center;
-  transform: rotateX(-55deg);
-  animation: snapOpen 0.22s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
-  margin-bottom: 3px;
-}
-
-.clapper-top-stripes {
-  display: flex;
-  height: 100%;
-  transform: skewX(-15deg) scaleX(1.3);
-  margin-left: -8px;
-}
-
-.top-stripe {
-  flex: 1;
-  background: var(--white);
-}
-.top-stripe:nth-child(even) { background: var(--gold); }
-
-@keyframes snapOpen {
-  0%   { transform: rotateX(-55deg); }
-  60%  { transform: rotateX(12deg); }
-  80%  { transform: rotateX(-4deg); }
-  100% { transform: rotateX(0deg); }
-}
-
-/* ── Hero ────────────────────────────────────────────────── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 1.5rem 5rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 30%, rgba(13,155,138,0.1) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(232,184,75,0.05) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(232,184,75,0.3);
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-.badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-  animation: pulse 2s ease infinite;
-}
-
-@keyframes pulse {
-  0%,100% { opacity:1; transform:scale(1); }
-  50%      { opacity:0.5; transform:scale(1.4); }
-}
-
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.4rem, 6vw, 4.8rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  max-width: 760px;
-  margin: 0 auto 1.25rem;
-  position: relative;
-}
-
-h1 em {
-  font-style: italic;
-  color: var(--teal);
-}
-
-h1 .gold { color: var(--gold); }
-
-.sub {
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  color: var(--mist);
-  max-width: 520px;
-  margin: 0 auto 2.5rem;
-  line-height: 1.75;
-  position: relative;
-}
-
-/* ── Form ────────────────────────────────────────────────── */
-.form-wrap {
-  width: 100%;
-  max-width: 480px;
-  margin: 0 auto 1.25rem;
-  position: relative;
-}
-
-.form-inner {
-  display: flex;
-  gap: 0;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 10px;
-  overflow: hidden;
-  transition: border-color 0.2s;
-}
-
-.form-inner:focus-within {
-  border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(13,155,138,0.12);
-}
-
-.form-inner input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  padding: 14px 18px;
-  font-size: 15px;
-  color: var(--white);
-  font-family: 'Inter', sans-serif;
-}
-
-.form-inner input::placeholder { color: var(--mist); }
-
-.form-inner button {
-  background: var(--teal);
-  border: none;
-  padding: 12px 22px;
-  color: var(--ink);
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  white-space: nowrap;
-  transition: background 0.15s;
-  border-radius: 0 8px 8px 0;
-}
-
-.form-inner button:hover { background: var(--tealLt); }
-.form-inner button:disabled { opacity: 0.6; cursor: not-allowed; }
-
-.form-note {
-  font-size: 12px;
-  color: var(--mist);
-  margin-top: 0.6rem;
-}
-
-.form-note span { color: var(--gold); }
-
-/* ── Success state ───────────────────────────────────────── */
-.success-box {
-  display: none;
-  background: rgba(13,155,138,0.1);
-  border: 1px solid rgba(13,155,138,0.3);
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-  max-width: 480px;
-  margin: 0 auto 1.25rem;
-  text-align: center;
-}
-
-.success-box h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--teal);
-  margin-bottom: 0.4rem;
-}
-
-.success-box p {
-  font-size: 13px;
-  color: var(--mist);
-  line-height: 1.6;
-}
-
-/* ── Social proof ────────────────────────────────────────── */
-.proof {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-.proof-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--mist);
-}
-
-.proof-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--mist);
-  opacity: 0.4;
-}
-
-/* ── Benefits ────────────────────────────────────────────── */
-.benefits {
-  padding: 5rem 1.5rem;
-  position: relative;
-}
-
-.benefits::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: min(700px, 90%);
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border), transparent);
-}
-
-.benefits-inner {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.benefits-eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.75rem;
-}
-
-.benefits h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 700;
-  margin-bottom: 3rem;
-  color: var(--white);
-}
-
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  text-align: left;
-}
-
-.benefit-card {
-  background: var(--slate);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.75rem;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.2s, border-color 0.2s;
-}
-
-.benefit-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255,255,255,0.12);
-}
-
-.benefit-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-}
-
-.benefit-card:nth-child(1)::before { background: var(--gold); }
-.benefit-card:nth-child(2)::before { background: var(--teal); }
-.benefit-card:nth-child(3)::before { background: linear-gradient(90deg, var(--gold), var(--teal)); }
-
-.benefit-icon {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.benefit-card h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--white);
-}
-
-.benefit-card p {
-  font-size: 13.5px;
-  color: var(--mist);
-  line-height: 1.65;
-}
-
-.benefit-tag {
-  display: inline-block;
-  margin-top: 1rem;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 20px;
-}
-
-.benefit-card:nth-child(1) .benefit-tag { background: rgba(232,184,75,0.12); color: var(--gold); }
-.benefit-card:nth-child(2) .benefit-tag { background: rgba(13,155,138,0.12); color: var(--teal); }
-.benefit-card:nth-child(3) .benefit-tag { background: rgba(232,184,75,0.08); color: var(--goldLt); }
-
-/* ── What is FluidScriptr ────────────────────────────────── */
-.what {
-  padding: 5rem 1.5rem;
-  background: var(--slate);
-  position: relative;
-}
-
-.what-inner {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.what h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.what h2 em { font-style: italic; color: var(--teal); }
-
-.what p {
-  font-size: 15px;
-  color: var(--mist);
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
-.what p strong { color: var(--white); font-weight: 600; }
-
-.path-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 2.5rem;
-  text-align: left;
-}
-
-.path-card {
-  border-radius: 12px;
-  padding: 1.5rem;
-  border: 1px solid var(--border);
-}
-
-.path-card.path-a { background: rgba(13,155,138,0.06); border-color: rgba(13,155,138,0.2); }
-.path-card.path-b { background: rgba(232,184,75,0.06); border-color: rgba(232,184,75,0.2); }
-
-.path-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.path-a .path-label { color: var(--teal); }
-.path-b .path-label { color: var(--gold); }
-
-.path-card h3 {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 0.4rem;
-  line-height: 1.4;
-}
-
-.path-card p {
-  font-size: 12.5px;
-  color: var(--mist);
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
-.path-b .stretch {
-  display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--gold);
-  background: rgba(232,184,75,0.12);
-  padding: 2px 8px;
-  border-radius: 10px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-/* ── Bottom CTA ──────────────────────────────────────────── */
-.bottom-cta {
-  padding: 5rem 1.5rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.bottom-cta::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(13,155,138,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.bottom-cta h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 900;
-  margin-bottom: 0.75rem;
-  position: relative;
-}
-
-.bottom-cta p {
-  color: var(--mist);
-  font-size: 15px;
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-/* ── Footer ──────────────────────────────────────────────── */
-footer {
-  padding: 1.5rem;
-  text-align: center;
-  border-top: 1px solid var(--border);
-  font-size: 12px;
-  color: #3A4E62;
-}
-
-footer a { color: var(--teal); text-decoration: none; }
-footer a:hover { text-decoration: underline; }
-
-/* ── Counter ─────────────────────────────────────────────── */
-.counter-wrap {
-  margin-top: 2rem;
-  position: relative;
-}
-
-.counter-bar-bg {
-  width: min(340px, 90%);
-  height: 4px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 2px;
-  margin: 0 auto 0.6rem;
-  overflow: hidden;
-}
-
-.counter-bar-fill {
-  height: 100%;
-  width: 23%;
-  background: linear-gradient(90deg, var(--teal), var(--gold));
-  border-radius: 2px;
-  animation: fillBar 1.5s ease 1s both;
-}
-
-@keyframes fillBar {
-  from { width: 0; }
-  to   { width: 23%; }
-}
-
-.counter-text {
-  font-size: 12px;
-  color: var(--mist);
-}
-
-.counter-text strong { color: var(--gold); }
-
-/* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 640px) {
-  .benefits-grid { grid-template-columns: 1fr; }
-  .path-grid     { grid-template-columns: 1fr; }
-  .form-inner    { flex-direction: column; border-radius: 10px; }
-  .form-inner input { border-radius: 8px 8px 0 0; }
-  .form-inner button { border-radius: 0 0 8px 8px; padding: 13px; }
-  .proof         { gap: 0.75rem; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>FluidScriptr — From Page to Screen</title>
+        <meta name="description" content="The first AI that reads your whole story before writing a single scene. Join the founding members list."/>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+        <style>/* ─── Reset ───────────────────────────────────────────────── */*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } html { scroll-behavior: smooth; } /* ─── Design tokens ───────────────────────────────────────── */:root { --bg: #1C2B3A; --nm-l: #243548;  /* nm light shadow */ --nm-d: #121E2C;  /* nm dark shadow */ --nm-l2: #2A3D50;  /* stronger light */ --nm-d2: #0D1720;  /* stronger dark */ --blue: #fea735; --blue-lt: #ffb85a; --blue-glow: rgba(254,167,53,0.18); --blue-rim: rgba(254,167,53,0.35); --text: #D4E2F0; --text2: #7A93B0; --text3: #3D5472; --surface: #1F3044;  /* slightly raised surface */ /* shadows */ --s-raise: -8px -8px 18px var(--nm-l), 8px 8px 18px var(--nm-d); --s-raise-sm: -4px -4px 10px var(--nm-l), 4px 4px 10px var(--nm-d); --s-inset: inset -4px -4px 10px var(--nm-l), inset 4px 4px 10px var(--nm-d); --s-inset-sm: inset -3px -3px 7px var(--nm-l), inset 3px 3px 7px var(--nm-d); --s-card: -12px -12px 28px var(--nm-l), 12px 12px 28px var(--nm-d); } /* ─── Base ────────────────────────────────────────────────── */body { font-family: 'Open Sans', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; } /* ─── Grain texture overlay ───────────────────────────────── */body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.4; } /* ─── Navbar ──────────────────────────────────────────────── */.nav { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: min(1060px, calc(100% - 40px)); z-index: 200; background: var(--bg); border-radius: 50px; box-shadow: var(--s-raise); display: flex; align-items: center; padding: 12px 14px 12px 28px; gap: 0; } .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; } .nav-logo-mark { width: 34px; height: 34px; border-radius: 50%; background: var(--bg); box-shadow: var(--s-raise-sm); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; } .nav-logo-word { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; } .nav-logo-word span { color: var(--blue); } .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; } .nav-links a { text-decoration: none; font-size: 13.5px; font-weight: 500; color: var(--text2); padding: 7px 16px; border-radius: 30px; transition: color 0.2s, box-shadow 0.2s, background 0.2s; } .nav-links a:hover { color: var(--text); background: var(--bg); box-shadow: var(--s-inset-sm); } .nav-btn { margin-left: 10px; padding: 10px 24px; border-radius: 30px; border: none; cursor: pointer; font-size: 13px; font-weight: 700; font-family: 'Open Sans', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; background: var(--blue); box-shadow: 0 4px 20px var(--blue-glow), 0 0 0 1px var(--blue-rim); transition: box-shadow 0.2s, background 0.2s; text-decoration: none; display: inline-block; } .nav-btn:hover { background: var(--blue-lt); box-shadow: 0 6px 28px rgba(0,119,255,0.35), 0 0 0 1px var(--blue-rim); } /* ─── Hero ────────────────────────────────────────────────── */.hero { min-height: 100vh; display: flex; align-items: center; padding: 130px 60px 90px; max-width: 1160px; margin: 0 auto; gap: 0; } .hero-left { flex: 0 0 52%; padding-right: 56px; } .hero-right { flex: 0 0 48%; display: flex; align-items: center; justify-content: center; position: relative; min-height: 460px; } /* Badge */.badge { display: inline-flex; align-items: center; gap: 8px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); background: var(--bg); box-shadow: var(--s-inset-sm); padding: 7px 16px; border-radius: 30px; margin-bottom: 2rem; } .badge-pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 8px var(--blue); animation: pulse 2.2s ease infinite; } @keyframes pulse { 0%, 100% {  opacity: 1;  transform: scale(1);  box-shadow: 0 0 6px var(--blue); }  50% {  opacity: 0.6;  transform: scale(1.5);  box-shadow: 0 0 14px var(--blue); } } /* Headline */.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 4.2vw, 3.8rem); font-weight: 900; line-height: 1.06; letter-spacing: -0.025em; color: var(--text); margin-bottom: 1.4rem; } .hero h1 em { font-style: italic; color: var(--blue); text-shadow: 0 0 40px var(--blue-glow); } .hero-sub { font-size: 15px; color: var(--text2); line-height: 1.85; margin-bottom: 2.4rem; max-width: 400px; font-weight: 400; } /* Email form — inset carved trough */.email-trough { background: var(--bg); box-shadow: var(--s-inset); border-radius: 50px; padding: 6px; display: flex; gap: 6px; max-width: 430px; margin-bottom: 1.2rem; } .email-trough input { flex: 1; background: transparent; border: none; outline: none; padding: 10px 18px; font-size: 14px; font-family: 'Open Sans', sans-serif; color: var(--text); } .email-trough input::placeholder { color: var(--text3); } .email-trough button { background: var(--blue); border: none; border-radius: 40px; padding: 10px 22px; font-size: 12.5px; font-weight: 700; font-family: 'Open Sans', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; cursor: pointer; white-space: nowrap; box-shadow: 0 4px 18px var(--blue-glow); transition: background 0.15s, box-shadow 0.15s; } .email-trough button:hover { background: var(--blue-lt); box-shadow: 0 6px 24px rgba(254,167,53,0.4); } .email-trough button:disabled { opacity: 0.5; cursor: not-allowed; } .form-note { font-size: 11.5px; color: var(--text3); padding-left: 8px; } .form-note strong { color: var(--blue); font-weight: 600; } /* Success */.success-msg { display: none; background: var(--bg); box-shadow: var(--s-inset); border-radius: 16px; padding: 1.2rem 1.5rem; max-width: 430px; margin-bottom: 1.2rem; border-left: 3px solid var(--blue); } .success-msg h3 { font-size: 14px; font-weight: 700; color: var(--blue); margin-bottom: 4px; } .success-msg p { font-size: 13px; color: var(--text2); line-height: 1.6; } /* Proof row */.proof-row { display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; margin-top: 2rem; align-items: center; } .proof-item { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--text2); } .proof-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--bg); box-shadow: var(--s-raise-sm); display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; } /* Counter */.counter-wrap { margin-top: 2.2rem; } .counter-bar-bg { width: min(330px, 100%); height: 4px; background: var(--bg); box-shadow: var(--s-inset-sm); border-radius: 4px; overflow: hidden; margin-bottom: 0.6rem; } .counter-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--blue), #ffca7a); border-radius: 4px; box-shadow: 0 0 10px var(--blue-glow); transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1); } .counter-label { font-size: 11.5px; color: var(--text3); font-weight: 400; } .counter-label strong { color: var(--blue); font-weight: 700; } /* ─── Hero Visual — Neumorphic Sculpture ─────────────────── */.sculpture { position: relative; width: 380px; height: 380px; flex-shrink: 0; } /* Each ring is a circle embossed from the surface */.ring { position: absolute; top: 50%; left: 50%; border-radius: 50%; transform: translate(-50%, -50%); } .ring-1 { width: 360px; height: 360px; background: var(--bg); box-shadow: -14px -14px 34px var(--nm-l2),
+    14px 14px 34px var(--nm-d2),
+    inset 2px 2px 4px var(--nm-l),
+    inset -2px -2px 4px var(--nm-d); } .ring-2 { width: 290px; height: 290px; background: var(--bg); box-shadow: -10px -10px 24px var(--nm-l2),
+    10px 10px 24px var(--nm-d2),
+    inset 1px 1px 3px rgba(255,255,255,0.04),
+    inset -1px -1px 3px rgba(0,0,0,0.2); } .ring-3 { width: 218px; height: 218px; background: var(--bg); box-shadow: -8px -8px 18px var(--nm-l2),
+    8px 8px 18px var(--nm-d2); } .ring-4 { width: 150px; height: 150px; background: var(--bg); box-shadow: -6px -6px 14px var(--nm-l2),
+    6px 6px 14px var(--nm-d2); } .ring-5 { width: 88px; height: 88px; background: var(--bg); box-shadow: -4px -4px 10px var(--nm-l2),
+    4px 4px 10px var(--nm-d2); } /* Glowing center */.ring-center { width: 36px; height: 36px; background: radial-gradient(circle at 38% 35%, #ffca7a, var(--blue)); box-shadow: 0 0 20px var(--blue),
+    0 0 50px var(--blue-glow),
+    0 0 80px rgba(254,167,53,0.08); animation: centerPulse 3s ease infinite; } @keyframes centerPulse { 0%, 100% {  box-shadow: 0 0 20px var(--blue), 0 0 50px var(--blue-glow); }  50% {  box-shadow: 0 0 30px var(--blue), 0 0 70px rgba(254,167,53,0.25), 0 0 100px rgba(254,167,53,0.1); } } /* Floating orbit pills */.orbit-pill { position: absolute; background: var(--bg); box-shadow: var(--s-raise); border-radius: 30px; padding: 9px 16px; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--text2); white-space: nowrap; animation: floatPill 4s ease-in-out infinite; } .orbit-pill .pill-icon { width: 26px; height: 26px; border-radius: 50%; background: var(--bg); box-shadow: var(--s-raise-sm); display: flex; align-items: center; justify-content: center; font-size: 12px; } .pill-top { top: -14px; left: 50%; transform: translateX(-50%); animation-delay: 0s; } .pill-right { right: -24px; top: 50%; transform: translateY(-50%); animation-delay: 1s; } .pill-bottom { bottom: -14px; left: 50%; transform: translateX(-50%); animation-delay: 2s; } @keyframes floatPill { 0%, 100% {  transform: translateX(-50%) translateY(0px); }  50% {  transform: translateX(-50%) translateY(-6px); } } .pill-right { animation: floatPillV 4s ease-in-out 1s infinite; } @keyframes floatPillV { 0%, 100% {  transform: translateY(-50%) translateX(0px); }  50% {  transform: translateY(-50%) translateX(5px); } } .pill-bottom { animation: floatPillB 4s ease-in-out 2s infinite; } @keyframes floatPillB { 0%, 100% {  transform: translateX(-50%) translateY(0px); }  50% {  transform: translateX(-50%) translateY(6px); } } /* ─── Sections shared ─────────────────────────────────────── */.section-wrap { max-width: 1100px; margin: 0 auto; padding: 90px 60px; } .eyebrow { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.9rem; text-align: center; } .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 2.8vw, 2.3rem); font-weight: 700; line-height: 1.2; color: var(--text); text-align: center; margin-bottom: 3.5rem; } .section-title em { font-style: italic; color: var(--blue); } /* ─── The Difference ─────────────────────────────────────── */.diff-wrap { background: var(--bg); } .diff-inner { max-width: 800px; margin: 0 auto; text-align: center; } .diff-inner .section-title { margin-bottom: 1.5rem; } .diff-body { font-size: 15px; color: var(--text2); line-height: 1.9; margin-bottom: 1rem; text-align: left; } .diff-body strong { color: var(--text); font-weight: 600; } /* Story Bible callout — inset */.bible-callout { background: var(--bg); box-shadow: var(--s-inset); border-radius: 18px; padding: 1.8rem 2rem; margin: 2.5rem 0; display: flex; gap: 1.2rem; align-items: flex-start; text-align: left; } .bible-icon { width: 52px; height: 52px; background: var(--bg); box-shadow: var(--s-raise-sm); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; } .bible-text h3 { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--blue); margin-bottom: 0.4rem; letter-spacing: 0.02em; } .bible-text p { font-size: 13.5px; color: var(--text2); line-height: 1.7; } /* Path cards */.path-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.8rem; text-align: left; } .path-card { background: var(--bg); box-shadow: var(--s-raise); border-radius: 18px; padding: 1.8rem; transition: box-shadow 0.25s; } .path-card:hover { box-shadow: -14px -14px 32px var(--nm-l2),
+    14px 14px 32px var(--nm-d2); } .path-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 6px; } .path-a .path-tag { color: var(--blue); } .path-b .path-tag { color: #44BBAA; } .path-card h3 { font-family: 'Playfair Display', serif; font-size: 14.5px; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; line-height: 1.4; } .path-card p { font-size: 13px; color: var(--text2); line-height: 1.7; } .stretch-tag { display: inline-block; margin-top: 0.8rem; font-size: 9.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #44BBAA; background: var(--bg); box-shadow: var(--s-inset-sm); padding: 4px 10px; border-radius: 20px; } /* ─── Benefits ────────────────────────────────────────────── */.benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; } .benefit-card { background: var(--bg); box-shadow: var(--s-card); border-radius: 22px; padding: 2.2rem 1.8rem; transition: box-shadow 0.3s, transform 0.3s; position: relative; overflow: hidden; } .benefit-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--blue), transparent); opacity: 0; transition: opacity 0.3s; } .benefit-card:hover { transform: translateY(-5px); box-shadow: -16px -16px 36px var(--nm-l2),
+    16px 16px 36px var(--nm-d2); } .benefit-card:hover::after { opacity: 1; } .benefit-icon-wrap { width: 54px; height: 54px; background: var(--bg); box-shadow: var(--s-raise-sm); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 1.4rem; } .benefit-card h3 { font-family: 'Playfair Display', serif; font-size: 14.5px; font-weight: 700; color: var(--text); margin-bottom: 0.7rem; line-height: 1.35; } .benefit-card p { font-size: 13px; color: var(--text2); line-height: 1.75; } .benefit-pill { display: inline-block; margin-top: 1.1rem; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); background: var(--bg); box-shadow: var(--s-inset-sm); padding: 4px 12px; border-radius: 20px; } /* ─── Bottom CTA ──────────────────────────────────────────── */.cta-section { background: var(--bg); padding: 100px 60px; text-align: center; position: relative; overflow: hidden; } /* ambient glow behind CTA */.cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(254,167,53,0.07) 0%, transparent 70%); pointer-events: none; } .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; color: var(--text); margin-bottom: 0.8rem; position: relative; } .cta-section h2 em { font-style: italic; color: var(--blue); } .cta-sub { font-size: 14.5px; color: var(--text2); margin-bottom: 2.6rem; position: relative; } /* Large inset trough for CTA form */.cta-trough { max-width: 480px; margin: 0 auto 1.2rem; background: var(--bg); box-shadow: inset -5px -5px 12px var(--nm-l),
+    inset 5px 5px 12px var(--nm-d); border-radius: 60px; padding: 7px; display: flex; gap: 7px; position: relative; } .cta-trough input { flex: 1; background: transparent; border: none; outline: none; padding: 11px 20px; font-size: 14px; font-family: 'Open Sans', sans-serif; color: var(--text); } .cta-trough input::placeholder { color: var(--text3); } .cta-trough button { background: var(--blue); border: none; border-radius: 50px; padding: 11px 26px; font-size: 12.5px; font-weight: 700; font-family: 'Open Sans', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; cursor: pointer; white-space: nowrap; box-shadow: 0 4px 20px var(--blue-glow); transition: background 0.15s, box-shadow 0.15s; } .cta-trough button:hover { background: var(--blue-lt); box-shadow: 0 6px 28px rgba(254,167,53,0.4); } .cta-trough button:disabled { opacity: 0.5; cursor: not-allowed; } .cta-note { font-size: 11.5px; color: var(--text3); position: relative; } .cta-note strong { color: var(--blue); font-weight: 600; } .cta-success { display: none; max-width: 480px; margin: 0 auto; background: var(--bg); box-shadow: var(--s-inset); border-radius: 16px; padding: 1.4rem 1.8rem; border-left: 3px solid var(--blue); text-align: left; } .cta-success h3 { font-size: 14px; font-weight: 700; color: var(--blue); margin-bottom: 4px; } .cta-success p { font-size: 13px; color: var(--text2); line-height: 1.6; } /* ─── Footer ──────────────────────────────────────────────── */footer { border-top: 1px solid rgba(255,255,255,0.04); padding: 1.8rem 60px; text-align: center; font-size: 12px; color: var(--text3); } footer a { color: var(--text3); text-decoration: none; transition: color 0.2s; } footer a:hover { color: var(--blue); } /* ─── Scroll reveal ───────────────────────────────────────── */.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; } .reveal.visible { opacity: 1; transform: translateY(0); } .reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; } .reveal-delay-3 { transition-delay: 0.3s; } /* ─── Responsive ──────────────────────────────────────────── */@media (max-width: 900px) { .hero {  flex-direction: column;  padding: 120px 28px 70px;  text-align: center; }  .hero-left {  padding-right: 0;  margin-bottom: 3rem; }  .hero-sub {  max-width: 100%; }  .email-trough {  max-width: 100%; }  .proof-row {  justify-content: center; }  .section-wrap {  padding: 70px 28px; }  .benefits-grid {  grid-template-columns: 1fr;  max-width: 420px;  margin: 0 auto; }  .path-grid {  grid-template-columns: 1fr; }  .cta-section {  padding: 70px 28px; }  footer {  padding: 1.8rem 28px; }  .sculpture {  width: 300px;  height: 300px; }  .ring-1 {  width: 290px;  height: 290px; }  .ring-2 {  width: 230px;  height: 230px; }  .ring-3 {  width: 174px;  height: 174px; }  .ring-4 {  width: 118px;  height: 118px; }  .ring-5 {  width: 72px;  height: 72px; }  .ring-center {  width: 28px;  height: 28px; } } @media (max-width: 580px) { .nav-links {  display: none; }  .hero h1 {  font-size: 2.2rem; }  .email-trough {  flex-direction: column;  border-radius: 18px; }  .email-trough button {  border-radius: 12px;  text-align: center; }  .cta-trough {  flex-direction: column;  border-radius: 18px; }  .cta-trough button {  border-radius: 12px; } } @media (prefers-reduced-motion: reduce) { *, *::before, *::after {  animation: none !important;  transition-duration: 0.01ms !important; }  .reveal {  opacity: 1;  transform: none; } }</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap">
+    </head>
+    <body>
+        <!-- ── Navbar ─────────────────────────────────────────────── -->
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <a class="nav-logo" href="#"> <div class="nav-logo-mark" aria-hidden="true">🎬</div> <span class="nav-logo-word">Fluid<span>Scriptr</span></span> </a>
+            <ul class="nav-links">
+                <li>
+                    <a href="#about" style="text-transform: uppercase;">About</a>
+                </li>
+                <li>
+                    <a href="#benefits" style="text-transform: uppercase;">Benefits</a>
+                </li>
+                <li>
+                    <a href="#signup" style="text-transform: uppercase;">Campaign</a>
+                </li>
+                <li>
+                    <a href="mailto:hello@fluidscriptr.app" style="text-transform: uppercase;">Contact</a>
+                </li>
+            </ul>
+            <a href="#signup" class="nav-btn">Join the List</a>
+        </nav>
+        <!-- ── Hero ──────────────────────────────────────────────── -->
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-left">
+                <div class="badge">
+                    <span class="badge-pulse" aria-hidden="true"></span>
+                    Founding Members — 200 Spots Only
+                </div>
+                <h1 id="hero-heading" style="font-family: 'Fira Sans Extra Condensed', sans-serif;">
+      Your story<br>belongs<br>on the <em style="font-style: normal;">screen.</em> </h1>
+                <p class="hero-sub">
+      FluidScriptr is the first AI that reads your entire manuscript
+      before writing a single scene &#8212; so every page feels like the same film. </p>
+                <div id="hero-form">
+                    <div class="email-trough" role="form" aria-label="Waitlist signup">
+                        <input type="email" id="email-1" placeholder="your@email.com" autocomplete="email" aria-label="Email address"/>
+                        <button id="btn-1" onclick="submit1()">Join the List →</button>
+                    </div>
+                    <p class="form-note" style="color: #ffffff;"> <strong>Founding members</strong> get lifetime access at $39 &#8212; before it&apos;s public. </p>
+                </div>
+                <div class="success-msg" id="success-1" role="alert">
+                    <h3>🎬 You're in.</h3>
+                    <p>Welcome, Founding Member. You'll get first access to the $39 lifetime tier the moment the campaign goes live.</p>
+                </div>
+                <div class="proof-row">
+                    <div class="proof-item">
+                        <div class="proof-icon" aria-hidden="true">📖</div>
+                        Manuscript or idea — both work
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-icon" aria-hidden="true">🔒</div>
+                        No spam, ever
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-icon" aria-hidden="true">🎟️</div>
+                        Early bird at $39
+                    </div>
+                </div>
+                <div class="counter-wrap" aria-live="polite">
+                    <div class="counter-bar-bg" role="progressbar" aria-valuenow="47" aria-valuemin="0" aria-valuemax="200">
+                        <div class="counter-bar-fill" id="bar-fill"></div>
+                    </div>
+                    <p class="counter-label"> <strong id="counter-num">47 of 200</strong> founding member spots claimed </p>
+                </div>
+            </div>
+            <!-- Neumorphic sculpture -->
+            <div class="hero-right" aria-hidden="true">
+                <div class="sculpture">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+                    <div class="ring ring-4"></div>
+                    <div class="ring ring-5"></div>
+                    <div class="ring ring-center"></div>
+                    <!-- Orbit pills -->
+                    <div class="orbit-pill pill-top">
+                        <div class="pill-icon">📖</div>
+                        Story Bible
+                    </div>
+                    <div class="orbit-pill pill-right">
+                        <div class="pill-icon">✍️</div>
+                        Screenplay
+                    </div>
+                    <div class="orbit-pill pill-bottom">
+                        <div class="pill-icon">☁️</div>
+                        Export .fdx
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ── The Difference ─────────────────────────────────────── -->
+        <section id="about">
+            <div class="section-wrap diff-wrap">
+                <div class="diff-inner">
+                    <p class="eyebrow">How it works</p>
+                    <h2 class="section-title" style="font-family: 'Fira Sans Extra Condensed', sans-serif;">The first AI that <em style="font-family: 'Fira Sans Extra Condensed', sans-serif; font-style: normal;">reads the whole story</em><br>before writing a scene.</h2>
+                    <p class="diff-body">
+        Every other AI writing tool converts your manuscript passage by passage —
+        with <strong>no memory of what came before or after.</strong>
+        The result? Pages that technically look like a screenplay
+        but feel like a different film every scene. </p>
+                    <p class="diff-body">
+        FluidScriptr does something different. </p>
+                    <div class="bible-callout reveal">
+                        <div class="bible-icon">📖</div>
+                        <div class="bible-text">
+                            <h3 style="font-family: 'Fira Sans Extra Condensed', sans-serif;">The Story Bible — Your AI Context Engine</h3>
+                            <p>Before converting a single line, FluidScriptr reads your full manuscript and builds a Story Bible: characters, arcs, themes, motifs, tone, and ending. Every scene conversion carries that full context. The result is a screenplay that actually feels like one coherent film.</p>
+                        </div>
+                    </div>
+                    <div class="path-grid">
+                        <div class="path-card path-a reveal reveal-delay-1">
+                            <div class="path-tag">📖 Have a manuscript?</div>
+                            <h3 style="font-family: 'Fira Sans Extra Condensed', sans-serif;">Upload your PDF or DOCX and go.</h3>
+                            <p>FluidScriptr reads the full book, builds the Bible, and converts chapter by chapter — with the complete narrative arc in context every step.</p>
+                        </div>
+                        <div class="path-card path-b reveal reveal-delay-2">
+                            <div class="path-tag">💡 Just have an idea?</div>
+                            <h3 style="font-family: 'Fira Sans Extra Condensed', sans-serif;">Start from scratch — no book needed.</h3>
+                            <p>Answer guided story questions. FluidScriptr builds your world, characters, and structure from scratch, then takes you straight to screenplay format.</p>
+                            <span class="stretch-tag">Coming at $15K stretch goal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ── Benefits ───────────────────────────────────────────── -->
+        <section id="benefits">
+            <div class="section-wrap">
+                <p class="eyebrow">Why join now</p>
+                <h2 class="section-title" style="font-family: 'Fira Sans Extra Condensed', sans-serif;">Founding members get more<br>than early access.</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card reveal reveal-delay-1">
+                        <div class="benefit-icon-wrap">🏅</div>
+                        <h3 style="font-family: 'Fira Sans Extra Condensed', sans-serif;">Permanent Founding Member Badge</h3>
+                        <p>Your account is permanently marked — visible on your profile. You're one of the first 200 people who believed in FluidScriptr before it launched.</p>
+                        <span class="benefit-pill">Forever yours</span>
+                    </div>
+                    <div class="benefit-card reveal reveal-delay-2">
+                        <div class="benefit-icon-wrap">🎟️</div>
+                        <h3 style="font-family: 'Fira Sans Extra Condensed', sans-serif;">Lifetime Access at $39</h3>
+                        <p>The $39 lifetime tier is only for waitlist members. Once those 200 slots are claimed, the next tier on Indiegogo starts at $79. No recurring fees — ever.</p>
+                        <span class="benefit-pill">Save 50%</span>
+                    </div>
+                    <div class="benefit-card reveal reveal-delay-3">
+                        <div class="benefit-icon-wrap">🗳️</div>
+                        <h3 style="font-family: 'Fira Sans Extra Condensed', sans-serif;">You Shape the Product</h3>
+                        <p>Founding members get direct input on features, export formats, and the roadmap. Your feedback in the first 90 days carries more weight than any investor opinion.</p>
+                        <span class="benefit-pill">Your voice matters</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ── Bottom CTA ─────────────────────────────────────────── -->
+        <section class="cta-section" id="signup" aria-labelledby="cta-heading">
+            <h2 id="cta-heading" style="font-family: 'Fira Sans Extra Condensed', sans-serif;">Your story is <em style="font-style: normal;">waiting.</em></h2>
+            <p class="cta-sub">Join 47 storytellers already on the founding members list.</p>
+            <div id="cta-form">
+                <div class="cta-trough" role="form" aria-label="Waitlist signup">
+                    <input type="email" id="email-2" placeholder="your@email.com" autocomplete="email" aria-label="Email address"/>
+                    <button id="btn-2" onclick="submit2()">Join the List →</button>
+                </div>
+                <p class="cta-note"> <strong>Founding members</strong> get lifetime access at $39, before the campaign goes public. </p>
+            </div>
+            <div class="cta-success" id="success-2" role="alert">
+                <h3>🎬 You're in.</h3>
+                <p>Welcome, Founding Member. First access to the $39 lifetime tier is yours the moment we launch on Indiegogo.</p>
+            </div>
+        </section>
+        <!-- ── Footer ────────────────────────────────────────────────── -->
+        <footer>
+            <p>
+    © 2025 FluidScriptr &middot; <a href="mailto:hello@fluidscriptr.app">hello@fluidscriptr.app</a>
+    &middot; <a href="#">Privacy</a> </p>
+            <p style="margin-top:5px; font-size:11px; color:var(--text3);">
+    Launching on Indiegogo — join the list to be first. </p>
+        </footer>
+        <script>
+/* ── Counter animation on load ── */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const fill = document.getElementById('bar-fill');
+    if (fill) fill.style.width = '23.5%';
+  }, 400);
+});
+
+/* ── Scroll reveal ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── Form logic ── */
+function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+function bumpCounter() {
+  const el = document.getElementById('counter-num');
+  if (!el) return;
+  const n = parseInt(el.textContent) + 1;
+  el.textContent = n + ' of 200';
+  const fill = document.getElementById('bar-fill');
+  if (fill) fill.style.width = ((n / 200) * 100).toFixed(1) + '%';
+}
+
+async function doSubmit(emailId, btnId, formId, successId) {
+  const email = document.getElementById(emailId).value.trim();
+  if (!isEmail(email)) {
+    document.getElementById(emailId).focus();
+    return;
   }
-}
-</style>
-</head>
-<body>
-
-<!-- ── Hero ──────────────────────────────────────────────── -->
-<section class="hero">
-
-  <!-- Clapperboard -->
-  <div class="clapper-wrap" aria-hidden="true">
-    <div class="clapper">
-      <div class="clapper-top">
-        <div class="clapper-top-stripes">
-          <div class="top-stripe"></div><div class="top-stripe"></div>
-          <div class="top-stripe"></div><div class="top-stripe"></div>
-          <div class="top-stripe"></div><div class="top-stripe"></div>
-          <div class="top-stripe"></div><div class="top-stripe"></div>
-        </div>
-      </div>
-      <div class="clapper-body">
-        <div class="clapper-stripes">
-          <div class="stripe"></div><div class="stripe stripe-gold"></div>
-          <div class="stripe"></div><div class="stripe stripe-gold"></div>
-          <div class="stripe"></div><div class="stripe stripe-gold"></div>
-          <div class="stripe"></div><div class="stripe stripe-gold"></div>
-        </div>
-        <div class="clapper-text">
-          PROD: FluidScriptr<br>
-          SCENE: Your Story<br>
-          TAKE: 1
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="badge">
-    <span class="badge-dot"></span>
-    Founding Members — Limited Spots
-  </div>
-
-  <h1>Your story belongs<br>on the <em>screen.</em></h1>
-
-  <p class="sub">
-    FluidScriptr turns your book — or your idea — into a 
-    professional screenplay. Join the waitlist for founding 
-    member access and first pick of early bird pricing.
-  </p>
-
-  <!-- Email form -->
-  <div class="form-wrap" id="form-wrap">
-    <div class="form-inner">
-      <input
-        type="email"
-        id="email-input"
-        placeholder="your@email.com"
-        autocomplete="email"
-        aria-label="Your email address"
-      />
-      <button id="submit-btn" onclick="handleSubmit()">
-        Join the List →
-      </button>
-    </div>
-    <p class="form-note">
-      <span>Founding members</span> get early bird access at $39 — before it's public.
-      No spam, ever.
-    </p>
-  </div>
-
-  <!-- Success state -->
-  <div class="success-box" id="success-box">
-    <h3>🎬 You're on the list.</h3>
-    <p>
-      Welcome, Founding Member. You'll hear from us the moment 
-      the campaign goes live — with first access to the $39 early bird tier 
-      before anyone else.
-    </p>
-  </div>
-
-  <!-- Social proof -->
-  <div class="proof">
-    <div class="proof-item">🎬 For authors & storytellers</div>
-    <div class="proof-dot"></div>
-    <div class="proof-item">✦ No manuscript required</div>
-    <div class="proof-dot"></div>
-    <div class="proof-item">🔒 No spam, unsubscribe anytime</div>
-  </div>
-
-  <!-- Spots counter -->
-  <div class="counter-wrap">
-    <div class="counter-bar-bg">
-      <div class="counter-bar-fill"></div>
-    </div>
-    <p class="counter-text">
-      <strong>47 of 200</strong> founding member spots claimed
-    </p>
-  </div>
-
-</section>
-
-<!-- ── Benefits ───────────────────────────────────────────── -->
-<section class="benefits">
-  <div class="benefits-inner">
-    <div class="benefits-eyebrow">Why Join the Waitlist</div>
-    <h2>Founding members get more<br>than just early access.</h2>
-
-    <div class="benefits-grid">
-
-      <div class="benefit-card">
-        <span class="benefit-icon">🏅</span>
-        <h3>Permanent Founding Member Badge</h3>
-        <p>Your account is permanently marked as a founding member — visible on your profile and in the community. The first 200 people who believed in FluidScriptr before it launched.</p>
-        <span class="benefit-tag">Forever yours</span>
-      </div>
-
-      <div class="benefit-card">
-        <span class="benefit-icon">🎟️</span>
-        <h3>First Access to $39 Early Bird Pricing</h3>
-        <p>The $39 lifetime tier is exclusively available to waitlist members before the Indiegogo campaign goes public. Once those 200 slots are gone, the next tier starts at $79.</p>
-        <span class="benefit-tag">Save 50%</span>
-      </div>
-
-      <div class="benefit-card">
-        <span class="benefit-icon">🗳️</span>
-        <h3>Shape the Product</h3>
-        <p>Founding members get direct input on features, formats, and the roadmap. Your feedback in the first 90 days carries more weight than any investor opinion.</p>
-        <span class="benefit-tag">Your voice matters</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── What is FluidScriptr ───────────────────────────────── -->
-<section class="what">
-  <div class="what-inner">
-    <h2>The first AI that <em>reads your<br>whole story</em> before writing a scene.</h2>
-
-    <p>
-      Every other AI writing tool converts your manuscript passage by passage — 
-      with <strong>no memory of what came before or after.</strong> 
-      The result is pages that technically look like a screenplay 
-      but feel like a different film every scene.
-    </p>
-
-    <p>
-      FluidScriptr is different. Before converting a single line, it reads your 
-      full manuscript and builds a <strong>Story Bible</strong> — your characters, 
-      arcs, themes, motifs, and ending. Every scene conversion carries that 
-      full context. The result is a screenplay that actually feels 
-      like one coherent film.
-    </p>
-
-    <div class="path-grid">
-      <div class="path-card path-a">
-        <div class="path-label">📖 Have a manuscript?</div>
-        <h3>Upload your PDF or DOCX and go.</h3>
-        <p>FluidScriptr reads the full book, builds the bible, and converts chapter by chapter with narrative coherence.</p>
-      </div>
-      <div class="path-card path-b">
-        <div class="path-label">💡 Just have an idea?</div>
-        <h3>Start from scratch — no book needed.</h3>
-        <p>Answer guided story development questions. FluidScriptr builds your world, characters, and structure — then takes you straight to screenplay.</p>
-        <span class="stretch">Coming with stretch goal</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Bottom CTA ─────────────────────────────────────────── -->
-<section class="bottom-cta">
-  <h2>Your story is waiting.</h2>
-  <p>Join 47 storytellers already on the founding members list.</p>
-
-  <div class="form-wrap" id="form-wrap-2">
-    <div class="form-inner" id="form-inner-2">
-      <input
-        type="email"
-        id="email-input-2"
-        placeholder="your@email.com"
-        autocomplete="email"
-        aria-label="Your email address"
-      />
-      <button id="submit-btn-2" onclick="handleSubmit2()">
-        Join the List →
-      </button>
-    </div>
-    <p class="form-note">
-      <span>Founding members</span> get early bird access at $39.
-    </p>
-  </div>
-
-  <div class="success-box" id="success-box-2" style="margin-top:0;">
-    <h3>🎬 You're on the list.</h3>
-    <p>Welcome, Founding Member. First access to the $39 early bird tier is yours.</p>
-  </div>
-</section>
-
-<!-- ── Footer ─────────────────────────────────────────────── -->
-<footer>
-  <p>
-    © 2025 FluidScriptr · Built by Sean ·
-    <a href="mailto:hello@fluidscriptr.app">hello@fluidscriptr.app</a> ·
-    <a href="#">Privacy</a>
-  </p>
-  <p style="margin-top:5px;font-size:11px;">
-    Launching on Indiegogo — join the list to be notified first.
-  </p>
-</footer>
-
-<script>
-// ── Simple email capture ──────────────────────────────────
-// Formspree endpoint — fluidscriptr.app@gmail.com receives all submissions
-
-
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-async function submitEmail(email, btnId, formId, successId) {
   const btn = document.getElementById(btnId);
   const orig = btn.textContent;
   btn.disabled = true;
@@ -820,66 +246,30 @@ async function submitEmail(email, btnId, formId, successId) {
   try {
     const res = await fetch('https://formspree.io/f/xaqgwzao', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
-        email: email,
+        email,
         source: 'FluidScriptr Waitlist',
-        tier: 'Founding Member — Early Bird $39'
+        tier: 'Founding Member — Lifetime $39'
       })
     });
-
-    if (!res.ok) {
-      const data = await res.json();
-      throw new Error(data?.errors?.[0]?.message || 'Submission failed');
-    }
-
+    if (!res.ok) throw new Error();
     document.getElementById(formId).style.display = 'none';
-    document.getElementById(successId).style.display = 'block';
-
-    // Increment counter across both instances
-    const current = parseInt(document.querySelector('.counter-text strong')?.textContent || '47');
-    const next = current + 1;
-    document.querySelectorAll('.counter-text strong').forEach(el => {
-      el.textContent = next + ' of 200';
-    });
-    document.querySelectorAll('.counter-bar-fill').forEach(el => {
-      el.style.width = ((next / 200) * 100).toFixed(1) + '%';
-    });
-
-  } catch(err) {
+    const s = document.getElementById(successId);
+    s.style.display = 'block';
+    bumpCounter();
+  } catch {
     btn.disabled = false;
     btn.textContent = orig;
-    alert('Something went wrong — please try again or email hello@fluidscriptr.app');
+    alert('Something went wrong. Please email hello@fluidscriptr.app');
   }
 }
 
-function handleSubmit() {
-  const email = document.getElementById('email-input').value.trim();
-  if (!isValidEmail(email)) {
-    document.getElementById('email-input').focus();
-    return;
-  }
-  submitEmail(email, 'submit-btn', 'form-wrap', 'success-box');
-}
+function submit1() { doSubmit('email-1','btn-1','hero-form','success-1'); }
+function submit2() { doSubmit('email-2','btn-2','cta-form','success-2'); }
 
-function handleSubmit2() {
-  const email = document.getElementById('email-input-2').value.trim();
-  if (!isValidEmail(email)) {
-    document.getElementById('email-input-2').focus();
-    return;
-  }
-  submitEmail(email, 'submit-btn-2', 'form-wrap-2', 'success-box-2');
-}
-
-// Enter key support
-['email-input', 'email-input-2'].forEach((id, i) => {
-  document.getElementById(id).addEventListener('keydown', e => {
-    if (e.key === 'Enter') i === 0 ? handleSubmit() : handleSubmit2();
-  });
-});
+document.getElementById('email-1').addEventListener('keydown', e => { if(e.key==='Enter') submit1(); });
+document.getElementById('email-2').addEventListener('keydown', e => { if(e.key==='Enter') submit2(); });
 </script>
-</body>
+    </body>
 </html>
