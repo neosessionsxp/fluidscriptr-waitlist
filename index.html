@@ -62,7 +62,7 @@
                         <input type="email" id="email-1" placeholder="your@email.com" autocomplete="email" aria-label="Email address"/>
                         <button id="btn-1" onclick="submit1()">Join the List →</button>
                     </div>
-                    <p class="form-note" style="color: #616161;"> <strong>Founding members</strong> get lifetime access at $39 &#8212; before it&apos;s public. </p>
+                    <p class="form-note" style="color: #909090;"> <strong>Founding members</strong> get lifetime access at $39 &#8212; before it&apos;s public. </p>
                 </div>
                 <div class="success-msg" id="success-1" role="alert">
                     <h3>🎬 You're in.</h3>
@@ -247,17 +247,10 @@ async function doSubmit(emailId, btnId, formId, successId) {
   btn.textContent = 'Joining...';
 
   try {
-    const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
+    const res = await fetch('https://subscribe.fluidscriptr.app', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiYjY4MjE2NDBkNzZlN2JlODlhMzZhODM1ZDY3N2Q5ODQ5OTliYjVmYjFhZmMyMDVjYWUxNDY4Y2E1NmRmZjAzOThiMDVkNjhjNmM3Yzg4NzUiLCJpYXQiOjE3ODIxMjcyMzQuMjkyMjkyLCJuYmYiOjE3ODIxMjcyMzQuMjkyMjk0LCJleHAiOjQ5Mzc4MDA4MzQuMjg3ODYxLCJzdWIiOiIyNDc4MjE3Iiwic2NvcGVzIjpbXX0.lvZGHBWdQXOvvtPKNyQz2q3EMODMKPyoU69kU7oGxyOcaVq2uflbV2GgK0RnSX8Iu7Wp1shJVj8R1cW1WUhgaUx3lXl69K3jalLfTc0UdoqrlycM4tNQWEbqbv7HlNIVKwxJoS7jWsofsIw3J8zOKeno-JCdjJj9T2lkniwy_09z_wyvnRt0lNZDczsL0ha0euWaPwy6LEFxuXO_lm2LY1IUDVwN3CDJc3BETDaUa-IDH4WSWAgK6UO5U3S-hs6G_-wBsHV6DQwpcGm-5YUJK9DqJq2QSCm0ms5ezqbEABNwVcArV8IxAnxJ3wRv6slnqLhdw-ZEMHl5IkuWrs_XDvcyuK6s1GtTcXDAyHt6i2UTW5HkgmIivvgkWac5C0jy7Mjv3wKlMIS7_I_UlZcPvuta4jgc4Ne9rFH3kHH1Nd9IRrabXvTBiNvpDODD1RHHDdZHcbhHDODjbNTlrxm3XKAZdmoqw0OkK10oW7Y5a1kVCRfHiCkpPIRpb4KR-EHOOsGCvQR-P_AMz_PtHyH1zCpUUYqpL5QpxNpUOLkuN4Xq782AZDfTeytRI2d7svdSIEQmSII876txUvDRm6AQGXi8IzlfsHjpbQR1M0B7wF5-9MNYz7Y3fK9y0SiNRS7-HFLR4pH1hFLcPVFMTTmyQnNlhGM2Cp3ATjOjxBCbUsWg'
-      },
-      body: JSON.stringify({
-        email: email,
-        groups: ['190921445546657778']
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
     });
     if (!res.ok) throw new Error();
     document.getElementById(formId).style.display = 'none';
