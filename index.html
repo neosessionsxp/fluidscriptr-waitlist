@@ -243,10 +243,10 @@ async function doSubmit(emailId, btnId, formId, successId) {
   btn.textContent = 'Joining...';
 
   try {
-    const res = await fetch('https://fluidscriptr-subscribe.kerospad.workers.dev', {
+    const res = await fetch('https://formspree.io/f/xaqgwzao', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email })
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email, source: 'FluidScriptr Waitlist', tier: 'Founding Member — Lifetime $39' })
     });
     if (!res.ok) throw new Error();
     document.getElementById(formId).style.display = 'none';
